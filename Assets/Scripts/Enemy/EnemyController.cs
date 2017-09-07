@@ -57,7 +57,7 @@ public class EnemyController : PhysicsObject
                 case eStates.aim:
                     {
                         //Slow down while aiming
-                        maxSpeed = 0.3f;
+                        maxSpeed = 0.4f;
                         break;
                     }
 
