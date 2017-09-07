@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.IO;
 
 public class MenuNavigator : MonoBehaviour
 {
     //Initialize variables
     Camera cam;
+    Canvas canvas;
+    RectTransform creditsBG;
+    RectTransform optionsBG;
     bool moveR = false;
     bool moveL = false;
     bool moveU = false;
@@ -20,6 +24,18 @@ public class MenuNavigator : MonoBehaviour
     {
         //Get components
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        creditsBG = GameObject.Find("Credits").transform.Find("Background").GetComponent<RectTransform>();
+        optionsBG = GameObject.Find("Options").transform.Find("Background").GetComponent<RectTransform>();
+        //Set to world space and realign menus
+        canvas.renderMode = RenderMode.WorldSpace;
+        if (cam.aspect == 16f/10f)
+        {
+            creditsBG.offsetMin = new Vector2(0, -80);
+            creditsBG.offsetMax = new Vector2(0, -80);
+            optionsBG.offsetMin = new Vector2(0, 80);
+            optionsBG.offsetMax = new Vector2(0, 80);
+        }
         //Unlock mouse
 #if UNITY_STANDALONE
         Cursor.lockState = CursorLockMode.None;

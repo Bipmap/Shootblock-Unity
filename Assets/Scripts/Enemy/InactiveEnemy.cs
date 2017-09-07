@@ -24,20 +24,6 @@ public class InactiveEnemy : MonoBehaviour
         side = (GameObject)Resources.Load("Side");
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        //Run alpha decreasing timer loop
-        timer--;
-        Color col = new Color(1, 1, 1, 1 - timer / 70);
-        sprite.color = col;
-        if (timer == 0)
-        {
-            Destroy(gameObject);
-            Instantiate(Resources.Load("Enemy"), gameObject.transform.position, gameObject.transform.rotation);
-        }
-    }
-
     //Kill it
     public void Kill()
     {
@@ -63,6 +49,20 @@ public class InactiveEnemy : MonoBehaviour
             }
             //Real kill
             Destroy(gameObject);
+        }
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        //Run alpha decreasing timer loop
+        timer--;
+        Color col = new Color(1, 1, 1, 1 - timer / 70);
+        sprite.color = col;
+        if (timer == 0)
+        {
+            Destroy(gameObject);
+            Instantiate(Resources.Load("Enemy"), gameObject.transform.position, gameObject.transform.rotation);
         }
     }
 }

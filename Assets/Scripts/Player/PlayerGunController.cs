@@ -338,7 +338,7 @@ public class PlayerGunController : MonoBehaviour
 
             case Gun.smg:
                 {
-                    if ((inputHandler.input == PlatformInput.InputState.beginShoot) || ((inputHandler.input == PlatformInput.InputState.shooting)) && canShoot)
+                    if (((inputHandler.input == PlatformInput.InputState.beginShoot) || (inputHandler.input == PlatformInput.InputState.shooting)) && canShoot)
                     {
                         //Accuracy
                         float acc = Random.Range(-accBoundSMG, accBoundSMG);
@@ -457,7 +457,7 @@ public class PlayerGunController : MonoBehaviour
 
             case Gun.spingun:
                 {
-                    if ((inputHandler.input == PlatformInput.InputState.beginShoot) || ((inputHandler.input == PlatformInput.InputState.shooting)) && canShoot)
+                    if (((inputHandler.input == PlatformInput.InputState.beginShoot) || (inputHandler.input == PlatformInput.InputState.shooting)) && canShoot)
                     {
                         //Decrease spin
                         spinDelay *= 0.9f;
