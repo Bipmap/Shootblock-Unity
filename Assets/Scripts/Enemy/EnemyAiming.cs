@@ -7,7 +7,8 @@ public class EnemyAiming : MonoBehaviour
 
     //Initialize variables
     float aimDistance = 1.6f;
-    public int countdown = 75;
+    public int countdown;
+    public int countdownScalar;
     int aimTimer;
     int mask;
     GameObject player;
@@ -44,6 +45,9 @@ public class EnemyAiming : MonoBehaviour
         else chaseAngle = 180;
         transform.position = transform.parent.transform.position + Mathf.Sign(transform.parent.GetComponent<Rigidbody2D>().velocity.x) * disp;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, chaseAngle));
+        //Load and set countdown
+        countdownScalar = (int)GameObject.Find("Enemy Spawner").GetComponent<EnemySpawnController>().aimTimer;
+        countdown = (int)(75 * StaticSettings.enemyAimSpeed - countdownScalar);
     }
 
     void FixedUpdate()

@@ -9,9 +9,11 @@ public class ComboController : MonoBehaviour {
     public int combo;
     public bool reset;
     public bool smallReset;
+    bool scalar;
     int fontSize = 90;
-    float timer = 0;
-    float maxTime = 180;
+    int timer = 0;
+    int maxTime;
+    int maxTimeCap;
     ScoreUpdate score;
     Text comboCounter;
     RectTransform timerBar;
@@ -24,6 +26,10 @@ public class ComboController : MonoBehaviour {
         comboCounter = transform.Find("Counter").GetComponent<Text>();
         timerBar = transform.Find("Timer").GetComponent<RectTransform>();
         timerBackground = transform.Find("Timer Background").GetComponent<RectTransform>();
+        //Set timer and scalar
+        maxTimeCap = (int)(180 * StaticSettings.comboTimerSpeed);
+        maxTime = maxTimeCap;
+        scalar = StaticSettings.comboTimerScalar;
     }
 	
 	// Update is called once per frame
@@ -61,7 +67,8 @@ public class ComboController : MonoBehaviour {
     {
         //Add to combo, reset timer based on combo
         combo++;
-        maxTime = 180 - combo;
+        if (scalar) maxTime = maxTimeCap - combo;
+        else if (!scalar) maxTime = maxTimeCap;
         maxTime = Mathf.Max(100, maxTime);
         timer = maxTime;
         fontSize = 110;
@@ -75,6 +82,6 @@ public class ComboController : MonoBehaviour {
         if (combo > 20) reset = true;
         else smallReset = true;
         combo = 0;
-        maxTime = 180;
+        maxTime = maxTimeCap;
     }
 }
