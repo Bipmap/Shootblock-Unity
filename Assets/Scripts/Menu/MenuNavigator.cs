@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.IO;
 
 public class MenuNavigator : MonoBehaviour
 {
     //Initialize variables
     Camera cam;
+    Canvas canvas;
+    RectTransform creditsBG;
+    RectTransform optionsBG;
+    Slider enemyAimSpeed;
+    Slider enemyAimScalar;
+    Slider comboTimerSpeed;
+    ComboScalarToggle toggle;
     bool moveR = false;
     bool moveL = false;
     bool moveU = false;
@@ -20,16 +28,42 @@ public class MenuNavigator : MonoBehaviour
     {
         //Get components
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        creditsBG = GameObject.Find("Credits").transform.Find("Background").GetComponent<RectTransform>();
+        optionsBG = GameObject.Find("Options").transform.Find("Background").GetComponent<RectTransform>();
+        enemyAimSpeed = GameObject.Find("Enemy Aim Speed Slider").GetComponent<Slider>();
+        enemyAimScalar = GameObject.Find("Enemy Aim Speed Scalar").GetComponent<Slider>();
+        comboTimerSpeed = GameObject.Find("Combo Timer Speed").GetComponent<Slider>();
+        toggle = GameObject.Find("Toggle").GetComponent<ComboScalarToggle>();
+        //Set to world space and realign menus
+        canvas.renderMode = RenderMode.WorldSpace;
+        if (cam.aspect == 16f/10f)
+        {
+            creditsBG.offsetMin = new Vector2(0, -80);
+            creditsBG.offsetMax = new Vector2(0, -80);
+            optionsBG.offsetMin = new Vector2(0, 80);
+            optionsBG.offsetMax = new Vector2(0, 80);
+        }
         //Unlock mouse
 #if UNITY_STANDALONE
         Cursor.lockState = CursorLockMode.None;
 #endif
     }
 
-    //Load level 1
-    public void Load()
+    //Pick level 1
+    public void LevelSelect1()
     {
-        SceneManager.LoadScene("Level 1");
+        MoveR();
+        StaticSettings.level = "Level 1";
+    }
+
+    public void LoadLevel()
+    {
+        StaticSettings.enemyAimSpeed = enemyAimSpeed.value;
+        StaticSettings.enemyAimScalar = enemyAimScalar.value;
+        StaticSettings.comboTimerSpeed = comboTimerSpeed.value;
+        StaticSettings.comboTimerScalar = toggle.on;
+        SceneManager.LoadScene(StaticSettings.level);
     }
 
     //Load the range
