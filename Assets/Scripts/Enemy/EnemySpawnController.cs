@@ -20,6 +20,9 @@ public class EnemySpawnController : MonoBehaviour
 
     int timer = 30;
 
+    float aimScalar = StaticSettings.enemyAimScalar;
+    public float aimTimer;
+
     GameObject enemy;
 
     //Initialize state machine
@@ -56,6 +59,7 @@ public class EnemySpawnController : MonoBehaviour
                 if (GameObject.Find("Enemy(Clone)") == null && GameObject.Find("Inactive Enemy(Clone)") == null)
                 {
                     wave += 1;
+                    aimTimer = Mathf.Min(wave * aimScalar, 8 * aimScalar);
                     state = sStates.spawn;
                 }
 

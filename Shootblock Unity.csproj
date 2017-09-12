@@ -102,6 +102,8 @@
     <Compile Include="Assets\Scripts\Level\BoxSpawnController.cs" />
     <Compile Include="Assets\Scripts\Level\DeathTrigger.cs" />
     <Compile Include="Assets\Scripts\Level\ShootingTargetController.cs" />
+    <Compile Include="Assets\Scripts\Menu\ComboScalarToggle.cs" />
+    <Compile Include="Assets\Scripts\Menu\DifficultyPresets.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuNavigator.cs" />
     <Compile Include="Assets\Scripts\Menu\MobileOnly.cs" />
     <Compile Include="Assets\Scripts\Menu\OptionsPlatform.cs" />
@@ -125,6 +127,7 @@
     <Compile Include="Assets\Scripts\Range\ExitTrigger.cs" />
     <Compile Include="Assets\Scripts\Range\PickupController.cs" />
     <Compile Include="Assets\Scripts\RuntimeDictionary.cs" />
+    <Compile Include="Assets\Scripts\StaticSettings.cs" />
     <Compile Include="Assets\Scripts\UI\BulletCounter.cs" />
     <Compile Include="Assets\Scripts\UI\ChamberController.cs" />
     <Compile Include="Assets\Scripts\UI\ComboController.cs" />
