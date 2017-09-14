@@ -9,6 +9,7 @@ public class ComboController : MonoBehaviour {
     public int combo;
     public bool reset;
     public bool smallReset;
+    public bool tens = false;
     bool scalar;
     int fontSize = 90;
     int timer = 0;
@@ -34,6 +35,8 @@ public class ComboController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        //Turn off tens
+        if (tens == true) tens = false;
         //Decrement timer
         timer--;
         timer = Mathf.Max(0, timer);
@@ -72,6 +75,8 @@ public class ComboController : MonoBehaviour {
         maxTime = Mathf.Max(100, maxTime);
         timer = maxTime;
         fontSize = 110;
+        //Check if divisible by 10
+        if (combo % 10 == 0) tens = true;
     }
 
     public void AddToScore()
