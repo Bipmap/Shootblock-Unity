@@ -3881,7 +3881,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: 17254560fa733bf4e8b3e3b8a66d2292, type: 3}
-  m_Color: {r: 0.26567906, g: 0.5896418, b: 0.8602941, a: 1}
+  m_Color: {r: 0.26666668, g: 0.5882353, b: 0.85882354, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8424,7 +8424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13333334, g: 0.31764707, b: 0.4784314, a: 1}
+  m_Color: {r: 0.13333334, g: 0.31764707, b: 0.47843137, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

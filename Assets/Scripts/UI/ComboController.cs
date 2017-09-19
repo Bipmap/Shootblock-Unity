@@ -35,8 +35,6 @@ public class ComboController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        //Turn off tens
-        if (tens == true) tens = false;
         //Decrement timer
         timer--;
         timer = Mathf.Max(0, timer);
@@ -66,6 +64,15 @@ public class ComboController : MonoBehaviour {
         }
     }
 
+    void Update()
+    {
+        /*
+        //Debug for color
+        if (Input.GetKeyDown(KeyCode.RightArrow)) Increment();
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) AddToScore();
+        */
+    }
+
     public void Increment()
     {
         //Add to combo, reset timer based on combo
@@ -77,6 +84,7 @@ public class ComboController : MonoBehaviour {
         fontSize = 110;
         //Check if divisible by 10
         if (combo % 10 == 0) tens = true;
+        StartCoroutine(SetFalse());
     }
 
     public void AddToScore()
@@ -88,5 +96,11 @@ public class ComboController : MonoBehaviour {
         else smallReset = true;
         combo = 0;
         maxTime = maxTimeCap;
+    }
+
+    IEnumerator SetFalse()
+    {
+        yield return null;
+        tens = false;
     }
 }

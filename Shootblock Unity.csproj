@@ -126,6 +126,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerInitialization.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerRevolverBulletController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerRocketController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerTrailController.cs" />
     <Compile Include="Assets\Scripts\Range\ExitTrigger.cs" />
     <Compile Include="Assets\Scripts\Range\PickupController.cs" />
     <Compile Include="Assets\Scripts\RuntimeDictionary.cs" />

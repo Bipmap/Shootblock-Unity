@@ -17,15 +17,15 @@ public class BackgroundColor : MonoBehaviour {
     void Start()
     {
         //Declare colors
-        combo[0] = new Color(0.133f, 0.318f, 0.478f, 1);
-        combo[1] = new Color(0.196f, 0.353f, 0.369f, 1);
-        combo[2] = new Color(0.396f, 0.122f, 0.443f, 1);
-        combo[3] = Color.red;
-        combo[4] = Color.cyan;
-        combo[5] = Color.gray;
-        combo[6] = Color.green;
-        combo[7] = Color.yellow;
-        combo[8] = Color.black;
+        combo[0] = new Color(0.267f, 0.588f, 0.859f, 1);
+        combo[1] = new Color(0.431f, 0.718f, 0.486f, 1);
+        combo[2] = new Color(0.616f, 0.639f, 0.643f, 1);
+        combo[3] = new Color(0.396f, 0.122f, 0.443f, 1);
+        combo[4] = new Color(0.918f, 0.216f, 0.533f, 1);
+        combo[5] = new Color(1, 0.953f, 0.569f, 1);
+        combo[6] = new Color(0.561f, 0.769f, 0.729f, 1);
+        combo[7] = new Color(0.969f, 0.925f, 0.812f, 1);
+        combo[8] = new Color(0.204f, 0.204f, 0.29f, 1);
         combo[9] = Color.white;
         combo[10] = Color.clear;
         //Get components
