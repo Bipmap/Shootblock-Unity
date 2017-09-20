@@ -5564,7 +5564,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Shootblock 0.1.0-Alpha
+  m_Text: Shootblock 0.3.0-Alpha
 --- !u!222 &857034289
 CanvasRenderer:
   m_ObjectHideFlags: 0
