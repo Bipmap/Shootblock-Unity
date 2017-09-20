@@ -9,6 +9,7 @@ public class ComboController : MonoBehaviour {
     public int combo;
     public bool reset;
     public bool smallReset;
+    public bool tens = false;
     bool scalar;
     int fontSize = 90;
     int timer = 0;
@@ -63,6 +64,15 @@ public class ComboController : MonoBehaviour {
         }
     }
 
+    void Update()
+    {
+        /*
+        //Debug for color
+        if (Input.GetKeyDown(KeyCode.RightArrow)) Increment();
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) AddToScore();
+        */
+    }
+
     public void Increment()
     {
         //Add to combo, reset timer based on combo
@@ -72,6 +82,9 @@ public class ComboController : MonoBehaviour {
         maxTime = Mathf.Max(100, maxTime);
         timer = maxTime;
         fontSize = 110;
+        //Check if divisible by 10
+        if (combo % 10 == 0) tens = true;
+        StartCoroutine(SetFalse());
     }
 
     public void AddToScore()
@@ -83,5 +96,11 @@ public class ComboController : MonoBehaviour {
         else smallReset = true;
         combo = 0;
         maxTime = maxTimeCap;
+    }
+
+    IEnumerator SetFalse()
+    {
+        yield return null;
+        tens = false;
     }
 }
